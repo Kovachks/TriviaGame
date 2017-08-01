@@ -1,0 +1,14 @@
+#triviaBackground {
+	background-color: blue;
+	width: 60%;
+	height: 500px;
+	margin: 10% 10% 300px 10%;
+}
+#triviaHeader {
+	text-align: center;
+	width: 100%;
+	clear: both;
+}
+#start {
+	width: 75px;
+}
