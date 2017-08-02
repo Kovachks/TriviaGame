@@ -1,14 +1,60 @@
+body {
+	background-image: url("../images/backgroundImage.jpg");
+	font-family: 'Michroma', sans-serif;	
+}
+#start:hover {
+	box-shadow: 0px 0px 0px 2px white;
+	border: solid white 3px;
+	transition: .3s;
+}
 #triviaBackground {
-	background-color: blue;
-	width: 60%;
+	background-color: #860038;
+	width: 70%;
 	height: 500px;
-	margin: 10% 10% 300px 10%;
+	margin: 50px 15% 300px 15%;
 }
 #triviaHeader {
+	position: relative;
+	top: 50px;
 	text-align: center;
 	width: 100%;
 	clear: both;
+	color: white;
+	font-size: 20px;
+
+}
+#triviaContent{
+	position: relative;
+	height: 453px;
 }
 #start {
-	width: 75px;
+	position: relative;
+	width: 40%;
+	margin: 0 0 0 0;
+	border: solid black 3px;
+	padding: 8px 0;
+	top: 175px;
+	margin: 0 30%;
+	background-color: #002D62;
+	color: white;
+	font-size: 17px;
+}
+#timer {
+	position: absolute;
+	top: 50px;
+	color: white;
+	font-size: 17px;
+	width: 70%;
+	margin: 0 15%;
+	text-align: center;
+}
+.questionClass {
+	position:absolute;
+	width: 100%;
+	color: white;
+	font-size: 17px;
+	width: 90%;
+	margin: 5px 5%;
+	text-align: center;
+	top: 100px;
 }
