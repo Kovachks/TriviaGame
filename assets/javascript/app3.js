@@ -8,6 +8,8 @@ var count = 0;
 
 var questionArray = ["Who is the only Cleveland Cavalier to win an MVP award while on the Cavs?", "If you can read this the setTimeout is not working", "test2"];
 
+var answerGif = ["test","src='assets/images/lebronJames.gif'"]
+
 var buttonArray = ["<button data-correct='yes'> Lebron James</button>", "<button data-correct='no'>Austin Carr</button>","<button data-correct='no'>James Worthy</button>","<button data-correct='no'>Mark Price</button>", "<button data-correct='yes'> Test1</button>", "<button data-correct='no'>Test2</button>","<button data-correct='no'>Test 3</button>","<button data-correct='no'>Test 4</button>"]
 
 var correctAnswer = ["test" ,"Lebron James"]
@@ -30,6 +32,7 @@ function run() {
 		} else {
 
 		}
+
 	}
 }	
 function questionGen () {
@@ -51,6 +54,8 @@ function incorrectAnswer() {
 	var correctAnswerDiv = $("<div class='questionClass'>" + correctAnswer[count] + " is the correct answer.</div>")
 	triviaContent.append(correctAnswerDiv);
 	console.log(correctAnswerDiv);
+	var answerImage = $("<img " + answerGif[count] + "</img>");
+	triviaContent.append(answerImage);
 }
 
 function removeQuestion() {
@@ -60,6 +65,7 @@ function removeQuestion() {
 
 function removeAnswer() {
 	$(".questionClass").remove();
+	$("img").remove();
 }
 
 function stop() {
