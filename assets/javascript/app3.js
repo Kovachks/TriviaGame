@@ -22,7 +22,7 @@ function run() {
 	function decrement() {
 		number = number - 1;
 		$("#timer").html("<p>Time Remaining: " + number + " seconds</p>")
-		if (number === 25) {
+		if (number === 25 || ){
 			removeQuestion();
 			incorrectAnswer();
 			setTimeout(removeAnswer, 3000);
