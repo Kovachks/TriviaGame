@@ -25,6 +25,8 @@ var incorrect = 0;
 
 var correct = 0;
 
+var count = 0;
+
 var questions = {
 	question0: ["Who is the only Cleveland Cavalier to win an MVP award while on the Cavs?"],
 	question1: [],
@@ -80,7 +82,7 @@ function decrement() {
 }
 
 function questionCall() {
-	var newQuestionDiv = $("<div>"+ questions.question0+"</div>");
+	var newQuestionDiv = $("<div>"+ questions.question0[0]+"</div>");
 	newQuestionDiv.addClass("questionClass");
 	triviaContent.append(newQuestionDiv);
 }
@@ -100,9 +102,11 @@ function answerCall() {
 		correct = correct + 1;
 		removeButton();
 		stop();
+		setTimeout(2000)
 		$(".questionClass").html("Correct!")
 		var answerImage = $("<img " + correctAnswer.answer0[1] + "</img>")
 		triviaContent.append(answerImage);
+		count ++;
 	})
 	$(".incorrectClass").on("click", function(){
 		incorrect = incorrect + 1;
