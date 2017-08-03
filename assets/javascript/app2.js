@@ -7,6 +7,8 @@
 */
 
 //------------------------------Variables-----------------------
+var counter = 0;
+
 var number = 30;
 
 var intervalId;
@@ -15,16 +17,17 @@ var incorrect = 0;
 
 var correct = 0;
 
-var count = 0;
-
 var images = ['assets/images/lebronJames.gif', "Test"];
 
-var options = [
-	option1: ["Lebron James", "Test"],
-	option2: ["Austin Carr", "Test2"],
-	option3: ["James Worthy", "Test3"],
-	option4: ["Mark Price", "Test4"]
+var options = {
+	option0: ["<button class='correctClass'> Lebron James</button>", "<button class='incorrectClass'>Austin Carr</button>","<button class='incorrectClass'>James Worthy</button>","<button class='incorrectClass'>Mark Price</button>"],
+	option1: ["<button class='incorrectClass'>Austin Carr</button>", "Test2"],
+	option2: ["James Worthy", "Test3"],
+	option3: ["Mark Price", "Test4"]
 }
+
+var	correctAnswers = ["Lebron James", "test"]
+
 
 var questionArray = ["Who is the only Cleveland Cavalier to win an MVP award while on the Cavs?", "test"];
 
@@ -34,10 +37,20 @@ var triviaContent = $("#triviaContent");
 //runs decrement function once a second
 function run() {
 	intervalId = setInterval(decrement, 1000);
+	questionCall();
+	answerCall();
+
 }
 
-function stop () {
+function correctResponse () {
 	clearInterval(intervalId)
+	$(".correctClass").remove();
+	$(".incorrectClass").remove();
+	$(".questionClass").remove();
+	var newQuestionDiv = $("<div class='questionClass'>" + correctAnswers[count] + " is the correct answer!</div>")
+	triviaContent.append(newQuestionDiv);
+	mainGame();
+
 }
 function answer () {
 
@@ -51,7 +64,7 @@ function decrement() {
 		incorrect = incorrect + 1;
 		stop();
 		number = 30;
-		count += 1;
+		run();
 	}
 }
 
@@ -60,24 +73,15 @@ function questionCall() {
 	triviaContent.append(newQuestionDiv);
 	}
 
-function mainGame() {
-	run();
-	questionCall();	
+function answerCall() {
+	for (var i = 0; i < 4; i += 1) {
+	var correctAnswerButton = $(options.option0[i]);
+	triviaContent.append(correctAnswerButton);
+	}
+	counter = counter + 1;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 $("#start").click(function(){
 	$("#start").remove();
-	mainGame();
+	run();
 })
