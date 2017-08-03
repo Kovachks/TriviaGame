@@ -6,13 +6,13 @@ var number = 30;
 
 var count = 0;
 
-var questionArray = ["Who is the only Cleveland Cavalier to win an MVP award while on the Cavs?", "If you can read this the setTimeout is not working", "test2"];
+var questionArray = ["Who is the only Cleveland Cavalier to win an MVP award while on the Cavs?", "Who has hit the most homeruns as a Cleveland Indian?", "test2"];
 
 var answerGif = ["test","src='assets/images/lebronJames.gif'"]
 
-var buttonArray = ["<button data-correct='yes'> Lebron James</button>", "<button data-correct='no'>Austin Carr</button>","<button data-correct='no'>James Worthy</button>","<button data-correct='no'>Mark Price</button>", "<button data-correct='yes'> Test1</button>", "<button data-correct='no'>Test2</button>","<button data-correct='no'>Test 3</button>","<button data-correct='no'>Test 4</button>"]
+var buttonArray = ["<button data-correct='yes'> Lebron James</button>", "<button data-correct='no'>Austin Carr</button>","<button data-correct='no'>James Worthy</button>","<button data-correct='no'>Mark Price</button>", "<button data-correct='no'> Carlos Santana</button>", "<button data-correct='no'>Jackie Robinson</button>","<button data-correct='yes'>Jim Thome</button>","<button data-correct='no'>Kenny Lofton</button>"]
 
-var correctAnswer = ["test" ,"Lebron James"]
+var correctAnswer = ["test" ,"Lebron James", "Jim Thome"]
 
 var triviaContent = $("#triviaContent")
 
@@ -46,7 +46,6 @@ function questionGen () {
 	for (var i = 0; i < 4; i += 1) {
 	buttonArray.shift()
 	}
-
 	count = count + 1;
 }	
 
