@@ -2,20 +2,28 @@ body {
 	background-image: url("../images/backgroundImage.jpg");
 	font-family: 'Michroma', sans-serif;	
 }
-#start:hover {
+button:hover {
 	box-shadow: 0px 0px 0px 2px white;
 	border: solid white 3px;
 	transition: .3s;
+}
+img {
+	width: 25%;
+	height: 125px;
+	position: relative;
+	top: 200px;
+	padding: 0 38%;
 }
 #triviaBackground {
 	background-color: #860038;
 	width: 70%;
 	height: 500px;
 	margin: 50px 15% 300px 15%;
+	border: solid 3px black;
 }
 #triviaHeader {
 	position: relative;
-	top: 50px;
+	top: 40px;
 	text-align: center;
 	width: 100%;
 	clear: both;
@@ -29,19 +37,19 @@ body {
 }
 #start {
 	position: relative;
-	width: 40%;
+	width: 56%;
 	margin: 0 0 0 0;
 	border: solid black 3px;
 	padding: 8px 0;
-	top: 175px;
-	margin: 0 30%;
+	top: 150px;
+	margin: 0 22%;
 	background-color: #002D62;
 	color: white;
 	font-size: 17px;
 }
 #timer {
 	position: absolute;
-	top: 50px;
+	top: 20px;
 	color: white;
 	font-size: 17px;
 	width: 70%;
@@ -56,5 +64,27 @@ body {
 	width: 90%;
 	margin: 5px 5%;
 	text-align: center;
-	top: 100px;
+	top: 70px;
+}
+.correctClass {
+	position: relative;
+	top: 138px;	
+	width: 40%;
+	border: solid black 3px;
+	padding: 8px 0;	
+	margin: 5px 30%;	
+	background-color: #002D62;
+	color: white;
+	font-size: 17px;				
+}
+.incorrectClass {
+	position: relative;
+	top: 138px;	
+	width: 40%;
+	border: solid black 3px;
+	padding: 8px 0;	
+	margin: 5px 30%;	
+	background-color: #002D62;
+	color: white;
+	font-size: 17px;				
 }
