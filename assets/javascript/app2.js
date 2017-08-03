@@ -19,9 +19,16 @@ var count = 0;
 
 var images = ['assets/images/lebronJames.gif', "Test"];
 
-var correctAnswer = ["Lebron James", "Test"];
+var options = [
+	option1: ["Lebron James", "Test"],
+	option2: ["Austin Carr", "Test2"],
+	option3: ["James Worthy", "Test3"],
+	option4: ["Mark Price", "Test4"]
+}
 
 var questionArray = ["Who is the only Cleveland Cavalier to win an MVP award while on the Cavs?", "test"];
+
+var triviaContent = $("#triviaContent");
 
 //------------------------------Functions-------------------------
 //runs decrement function once a second
@@ -49,15 +56,13 @@ function decrement() {
 }
 
 function questionCall() {
-	var newQuestionDiv = $("<div>"+questionArray[0]+"</div>");
-	newQuestionDiv.addClass("questionClass");
+	var newQuestionDiv = $("<div class='questionClass'>"+questionArray[count]+"</div>");
 	triviaContent.append(newQuestionDiv);
 	}
 
-
 function mainGame() {
-	questionCall();
 	run();
+	questionCall();	
 }
 
 

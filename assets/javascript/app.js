@@ -47,6 +47,8 @@ var correctAnswer =	{
 	answer0: ["Lebron James", "src='assets/images/lebronJames.gif'"]
 }
 
+var questionArray = ["Who is the only Cleveland Cavalier to win an MVP award while on the Cavs?", "test"];
+
 var triviaContent = $("#triviaContent");
 
 //---------------------functions------------------
