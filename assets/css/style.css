@@ -47,6 +47,18 @@ img {
 	color: white;
 	font-size: 17px;
 }
+#restart {
+	position: relative;
+	width: 56%;
+	margin: 0 0 0 0;
+	border: solid black 3px;
+	padding: 8px 0;
+	top: 150px;
+	margin: 0 22%;
+	background-color: #002D62;
+	color: white;
+	font-size: 17px;
+}
 #timer {
 	position: absolute;
 	top: 20px;
@@ -65,6 +77,16 @@ img {
 	margin: 5px 5%;
 	text-align: center;
 	top: 70px;
+}
+.questionClass2 {
+	position:absolute;
+	width: 100%;
+	color: white;
+	font-size: 17px;
+	width: 90%;
+	margin: 5px 5%;
+	text-align: center;
+	top:100px;
 }
 .buttonClass {
 	position: relative;

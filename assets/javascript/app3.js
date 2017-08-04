@@ -12,7 +12,7 @@ var correctSelection = 0;
 
 var questionArray = ["Who is the only Cleveland Cavalier to win an MVP award while on the Cavs?", "Who has hit the most homeruns as a Cleveland Indian?", "Who is the leading rusher for the Cleveland Browns"];
 
-var answerGif = ["test","src='assets/images/lebronJames.gif'", "src='assets/images/jimthome.gif'", "src='assets/images/jimBrown.gif"]
+var answerGif = ["test","src='assets/images/lebronJames.gif'", "src='assets/images/jimthome.gif'", "src='assets/images/jimBrown.gif'"]
 
 var buttonArray = [];
 
@@ -25,47 +25,53 @@ var correctAnswer = ["test" ,"Lebron James", "Jim Thome", "Jim Brown"]
 var triviaContent = $("#triviaContent");
 
 
-function answer() {
-	var buttonClick = $(this).attr("data-correct")
-}
-
-
 function run() {
 	
 	var userSelection;
 
 
 	questionGen();
-	$('.buttonClass').on('click', function(){
-		userSelection = $(this).attr("data-correct");
-	});
-
 	intervalId = setInterval(decrement, 1000)
-	function decrement() {
-		number = number - 1;
-		$("#timer").html("<p>Time Remaining: " + number + " seconds</p>")
-				if (number === 0 || userSelection == 'no'){
-					userSelection = '';
-					incorrectSelection+=1;
-					removeQuestion();
-					answerObtained();
-					setTimeout(removeAnswer, 3000);
-					setTimeout(questionGen, 3000);
-					number = 33;
-				} else if (userSelection == 'yes'){
-					userSelection = '';					
-					correctSelection+=1;
-					removeQuestion();
-					answerObtained();
-					setTimeout(removeAnswer, 3000);
-					setTimeout(questionGen, 3000);
-					number = 33;
-				}	else if (buttonArray === []) {
-
-				}
+		function decrement() {
+			$('.buttonClass').on('click', function(){
+			userSelection = $(this).attr("data-correct");
+			});
+			number = number - 1;
+			$("#timer").html("<p>Time Remaining: " + number + " seconds</p>")
+					if (count === 4) {
+						removeQuestion();
+						removeAnswer();
+						stop();
+						displayScore();
+					}
+					else if (number === 0 || userSelection == 'no'){
+						userSelection = '';
+						incorrectSelection+=1;
+						removeQuestion();
+						answerObtained();
+						setTimeout(removeAnswer, 3000);
+						setTimeout(questionGen, 3000);
+						number = 33;
+					} else if (userSelection == 'yes'){
+						userSelection = '';					
+						correctSelection+=1;
+						removeQuestion();
+						answerObtained();
+						setTimeout(removeAnswer, 3000);
+						setTimeout(questionGen, 3000);
+						number = 33;
+					}	
 			}
 		}
-		
+
+function displayScore() {
+	var correctDiv = $("<div class='questionClass'>You got "+ correctSelection+" questions correct!</div><br>")
+	var incorrectDiv = $("<div class='questionClass2'>You got "+ incorrectSelection+" questions incorrect</div>")
+	var restartButton = $("<button id='restart'>Restart the Game</button>")
+	triviaContent.append(correctDiv);
+	triviaContent.append(incorrectDiv);
+	triviaContent.append(restartButton);
+}
 
 
 function questionGen () {
@@ -114,4 +120,33 @@ $("#start").click(function(){
 	run();
 })
 
+$("#restart").click(function(){
+	$("#restart").remove();
+	reset();
+	run();
+})
+
 $(document).on("click", ".buttonClass", answer)
+
+function reset () {
+	var intervalId;
+
+	var number = 30;
+
+	var count = 0;
+
+	var incorrectSelection = 0;
+
+	var correctSelection = 0;
+
+	var questionArray = ["Who is the only Cleveland Cavalier to win an MVP award while on the Cavs?", "Who has hit the most homeruns as a Cleveland Indian?", "Who is the leading rusher for the Cleveland Browns"];
+
+	var answerGif = ["test","src='assets/images/lebronJames.gif'", "src='assets/images/jimthome.gif'", "src='assets/images/jimBrown.gif'"]
+
+	var buttonArray = [];
+
+	var buttonArray = ["<button data-correct='yes'> Lebron James</button>", "<button data-correct='no'>Austin Carr</button>","<button data-correct='no'>James Worthy</button>","<button data-correct='no'>Mark Price</button>",
+	 				   "<button data-correct='no'> Carlos Santana</button>", "<button data-correct='no'>Jackie Robinson</button>","<button data-correct='yes'>Jim Thome</button>","<button data-correct='no'>Kenny Lofton</button>",
+	 				   "<button data-correct='yes'>Jim Brown</button>","<button data-correct='no'>Peyton Hillis</button>","<button data-correct='no'>Leroy Kelly</button>","<button data-correct='no'>Earnest Byner</button>"]
+	run();
+}
