@@ -14,8 +14,6 @@ var questionArray = ["Who is the only Cleveland Cavalier to win an MVP award whi
 
 var answerGif = ["test","src='assets/images/lebronJames.gif'", "src='assets/images/jimthome.gif'", "src='assets/images/jimBrown.gif'"]
 
-var buttonArray = [];
-
  var buttonArray = ["<button data-correct='yes'> Lebron James</button>", "<button data-correct='no'>Austin Carr</button>","<button data-correct='no'>James Worthy</button>","<button data-correct='no'>Mark Price</button>",
  				   "<button data-correct='no'> Carlos Santana</button>", "<button data-correct='no'>Jackie Robinson</button>","<button data-correct='yes'>Jim Thome</button>","<button data-correct='no'>Kenny Lofton</button>",
  				   "<button data-correct='yes'>Jim Brown</button>","<button data-correct='no'>Peyton Hillis</button>","<button data-correct='no'>Leroy Kelly</button>","<button data-correct='no'>Earnest Byner</button>"]
@@ -24,11 +22,32 @@ var correctAnswer = ["test" ,"Lebron James", "Jim Thome", "Jim Brown"]
 
 var triviaContent = $("#triviaContent");
 
+function restart () {
+	console.log("test")
+
+	var intervalId;
+
+	var number = 30;
+
+	var count = 0;
+
+	var incorrectSelection = 0;
+
+	var correctSelection = 0;
+
+	var questionArray = ["Who is the only Cleveland Cavalier to win an MVP award while on the Cavs?", "Who has hit the most homeruns as a Cleveland Indian?", "Who is the leading rusher for the Cleveland Browns"];
+
+	var answerGif = ["test","src='assets/images/lebronJames.gif'", "src='assets/images/jimthome.gif'", "src='assets/images/jimBrown.gif'"]
+
+	$(".questionClass").remove();
+
+	$(".questionClass2").remove();
+
+};
 
 function run() {
-	
-	var userSelection;
 
+	var userSelection;
 
 	questionGen();
 	intervalId = setInterval(decrement, 1000)
@@ -70,7 +89,7 @@ function displayScore() {
 	var restartButton = $("<button id='restart'>Restart the Game</button>")
 	triviaContent.append(correctDiv);
 	triviaContent.append(incorrectDiv);
-	triviaContent.append(restartButton);
+	$("#restart").css("visibility", "visible");
 }
 
 
@@ -112,41 +131,18 @@ function stop() {
 	clearInterval(intervalId)
 }
 function start() {
-	intervalId = setInterval(decrement, 1000);
+intervalId = setInterval(decrement, 1000);
 }
 
 $("#start").click(function(){
-	$("#start").remove();
+	$("#start").css("visibility", "hidden");
 	run();
 })
 
 $("#restart").click(function(){
 	$("#restart").remove();
-	reset();
-	run();
+	$("#start").css("visibility", "visible")
+	restart();
 })
 
-$(document).on("click", ".buttonClass", answer)
-
-function reset () {
-	var intervalId;
-
-	var number = 30;
-
-	var count = 0;
-
-	var incorrectSelection = 0;
-
-	var correctSelection = 0;
-
-	var questionArray = ["Who is the only Cleveland Cavalier to win an MVP award while on the Cavs?", "Who has hit the most homeruns as a Cleveland Indian?", "Who is the leading rusher for the Cleveland Browns"];
-
-	var answerGif = ["test","src='assets/images/lebronJames.gif'", "src='assets/images/jimthome.gif'", "src='assets/images/jimBrown.gif'"]
-
-	var buttonArray = [];
-
-	var buttonArray = ["<button data-correct='yes'> Lebron James</button>", "<button data-correct='no'>Austin Carr</button>","<button data-correct='no'>James Worthy</button>","<button data-correct='no'>Mark Price</button>",
-	 				   "<button data-correct='no'> Carlos Santana</button>", "<button data-correct='no'>Jackie Robinson</button>","<button data-correct='yes'>Jim Thome</button>","<button data-correct='no'>Kenny Lofton</button>",
-	 				   "<button data-correct='yes'>Jim Brown</button>","<button data-correct='no'>Peyton Hillis</button>","<button data-correct='no'>Leroy Kelly</button>","<button data-correct='no'>Earnest Byner</button>"]
-	run();
-}
+$(document).on("click", ".buttonClass")
